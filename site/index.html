@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microchip Projections</title>
+<style>
+  body { margin:0; background:#0b0b0b; color:#eee; font-family:system-ui, sans-serif; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 16px; text-align:center; }
+  video, img { width: 100%; height: auto; border-radius: 12px; }
+  h1 { font-size: 1.1rem; font-weight:600; opacity:0.9; }
+  p { opacity:0.8; font-size:0.95rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Microchip Projections</h1>
+    <video id="vid" autoplay muted playsinline loop>
+      <source src="projections.mp4" type="video/mp4">
+      <img src="projections.gif" alt="Animated projections">
+    </video>
+    <p>Rotating/scrolling through HDF5 projections (autoplay, loop, muted for mobile compatibility).</p>
+  </div>
+<script>
+  // Attempt to start playback if mobile blocked the first try.
+  const v = document.getElementById('vid');
+  v.addEventListener('canplay', () => v.play().catch(()=>{}));
+</script>
+</body>
+</html>
